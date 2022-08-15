@@ -25,6 +25,8 @@ public class UnitsSelection : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
                 _DeselectAllUnits();
+            if(!(Input.GetKey(KeyCode.LeftShift) ||
+                Input.GetKey(KeyCode.RightShift)))
             if (Input.GetMouseButtonDown(0))
             {
                 _ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -57,7 +59,11 @@ public class UnitsSelection : MonoBehaviour
             if (inBounds)
                 unit.GetComponent<UnitManager>().Select();
             else
-                unit.GetComponent<UnitManager>().Deselect();
+            {
+                if(!(Input.GetKey(KeyCode.LeftShift) ||
+                Input.GetKey(KeyCode.RightShift)))
+                    unit.GetComponent<UnitManager>().Deselect();
+            }
         }
     }
     void OnGUI()

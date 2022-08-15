@@ -43,6 +43,7 @@ public class UnitManager : MonoBehaviour
         }
         else
         {
+            Debug.Log(1);
             if (!Define.SELECTED_UNITS.Contains(this))
                 _SelectUtil();
             else
