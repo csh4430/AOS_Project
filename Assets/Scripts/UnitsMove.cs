@@ -6,7 +6,7 @@ public class UnitsMove : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             RaycastHit hit;
             Vector3 point = Vector3.zero;
