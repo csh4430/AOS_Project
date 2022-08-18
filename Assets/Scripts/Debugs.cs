@@ -5,5 +5,8 @@ using UnityEngine;
 public class Debugs : MonoBehaviour
 {
     [SerializeField]
-    public List<UnitManager> SELECTED_UNIT = Define.SELECTED_UNITS;
+    private List<UnitManager> SELECTED_UNITS = Define.SELECTED_UNITS;
+
+    [SerializeField]
+    private UnitManager POINTED_UNIT = Define.POINTED_UNIT;
 }

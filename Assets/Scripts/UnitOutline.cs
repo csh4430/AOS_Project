@@ -12,14 +12,23 @@ public class UnitOutline : MonoBehaviour
     [SerializeField] private float outlineScaleFactor;
     [SerializeField] private Color outlineColor;
 
+    private UnitManager _unit;
+
+    private void Awake()
+    {
+        _unit = GetComponent<UnitManager>();
+    }
+
     private void OnMouseEnter()
     {
         DrawOutline();
+        Define.POINTED_UNIT = _unit;
     }
 
     private void OnMouseExit()
     {
         EraseOutline();
+        Define.POINTED_UNIT = null;
     }
 
     public void DrawOutline()

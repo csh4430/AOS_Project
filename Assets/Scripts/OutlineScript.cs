@@ -7,17 +7,16 @@ public class OutlineScript : MonoBehaviour
     
     private Renderer outlineRenderer;
     private bool m_isOn = false;
+    GameObject outlineObject = null;
     public void CreateOutline(Material outlineMat, float scaleFactor, Color color)
     {
         if (m_isOn)
             return;
         m_isOn = true;
-        GameObject outlineObject;
-        if (transform.childCount < 1)
+        if (outlineObject == null)
             outlineObject = Instantiate(this.gameObject, transform.position, transform.rotation, transform);
         else
         {
-            outlineObject = transform.GetChild(0).gameObject;
             outlineObject.SetActive(true);
         }
         outlineObject.transform.localScale = new Vector3(1, 1, -1);
@@ -36,6 +35,6 @@ public class OutlineScript : MonoBehaviour
         if (!m_isOn)
             return;
         m_isOn = false;
-        transform.GetChild(0).gameObject.SetActive(false);
+        outlineObject.gameObject.SetActive(false);
     }
 }

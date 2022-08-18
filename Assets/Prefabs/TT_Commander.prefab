@@ -1438,8 +1438,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703195581531688895}
-  m_LocalRotation: {x: 0.00000037548176, y: -0.00000064550863, z: 0.99786997, w: 0.06523505}
-  m_LocalPosition: {x: -0.23693466, y: -0.30114496, z: 0.0000010791309}
+  m_LocalRotation: {x: 0.028685343, y: 0.0018975476, z: 0.9975754, w: 0.06337838}
+  m_LocalPosition: {x: -0.23693554, y: -0.3011449, z: -0.00000056376007}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_Children:
   - {fileID: 4532840339429514980}
@@ -7773,6 +7773,7 @@ GameObject:
   - component: {fileID: 7716681504089055274}
   - component: {fileID: 1174407826883766460}
   - component: {fileID: 881219441476480083}
+  - component: {fileID: 1453337275728346727}
   m_Layer: 6
   m_Name: TT_Commander
   m_TagString: Unit
@@ -7827,6 +7828,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3205a80340927274c935c13041168982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_stat:
+    m_hp: 500
+    m_mp: 500
+    m_defDam: 100
+    m_skillDam: 50
+    m_defArm: 50
+    m_skillArm: 50
+    m_atkSpeed: 0
+    m_range: 5
+  m_isBuliding: 0
   selectionCircle: {fileID: 7716681502413120077}
 --- !u!65 &5448340173451415011
 BoxCollider:
@@ -7852,7 +7863,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 1000
+  m_Acceleration: 5000
   avoidancePriority: 0
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
@@ -7862,7 +7873,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &7716681504089055274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7907,6 +7918,18 @@ MonoBehaviour:
   outlineMaterial: {fileID: 2100000, guid: cd00c592526bcfc448107cd2eb81a469, type: 2}
   outlineScaleFactor: -1.1
   outlineColor: {r: 0, g: 0.4627451, b: 1, a: 0.35686275}
+--- !u!114 &1453337275728346727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716681504089055278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be96e258d99ca1640a300bcd27aa0284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7716681504089055584
 GameObject:
   m_ObjectHideFlags: 0

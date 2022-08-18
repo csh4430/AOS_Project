@@ -14,19 +14,32 @@ public class UnitsInput : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
+            
             RaycastHit hit;
             Vector3 point = Vector3.zero;
             int cnt = 0;
             Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, LayerMask.NameToLayer("Terrain"));
             foreach (var unit in Define.SELECTED_UNITS)
             {
+                if (unit.IsBulding)
+                    continue;
                 point += unit.transform.position;
                 cnt++;
             }
             point /= cnt;
+            if (Define.POINTED_UNIT != null)
+            {
+                foreach (var unit in Define.SELECTED_UNITS)
+                {
+                    if (!unit.IsBulding)
+                        unit.GetComponent<UnitMove>().Move(Define.POINTED_UNIT, unit.Stat.Range);
+                }
+            }
+            else
             foreach (var unit in Define.SELECTED_UNITS)
             {
-                unit.GetComponent<UnitMove>().Move(unit.transform.position - point + hit.point);
+                if(!unit.IsBulding)
+                    unit.GetComponent<UnitMove>().Move(unit.transform.position - point + hit.point);
             }
         }
     }

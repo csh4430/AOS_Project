@@ -2,8 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class UnitManager : MonoBehaviour, IDamagable
 {
+    [SerializeField]
+    private UnitStat m_stat = null;
+
+    public UnitStat Stat { get => m_stat;}
+
+    [SerializeField]
+    private bool m_isBuliding = false;
+
+    public bool IsBulding { get { return m_isBuliding; } }
+
+
     public GameObject selectionCircle;
 
     private void OnMouseDown()
@@ -60,5 +71,21 @@ public class UnitManager : MonoBehaviour
         if (!Define.SELECTED_UNITS.Contains(this)) return;
         Define.SELECTED_UNITS.Remove(this);
         selectionCircle.SetActive(false);
+    }
+
+    public void Damage(int amount)
+    {
+        if (Stat.HP - amount <= 0)
+        {
+            Stat.ChangeStat(global::Stat.HP, 0);
+            Die();
+            return;
+        }
+        Stat.ChangeStat(global::Stat.HP, Stat.HP - amount);
+    }
+
+    public void Die()
+    {
+
     }
 }

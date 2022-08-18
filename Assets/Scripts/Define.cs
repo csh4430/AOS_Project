@@ -23,4 +23,5 @@ public static class Define
     public static Vector2 MousePos => MainCam.ScreenToWorldPoint(Input.mousePosition);
 
     public static List<UnitManager> SELECTED_UNITS = new List<UnitManager>();
+    public static UnitManager POINTED_UNIT = null;
 }

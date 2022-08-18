@@ -1072,7 +1072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9709ed959a32e274a950fee0d256c8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SELECTED_UNIT: []
+  SELECTED_UNITS: []
+  POINTED_UNIT: {fileID: 0}
 --- !u!1 &1286416164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1599,10 @@ PrefabInstance:
     - target: {fileID: 7716681504089055278, guid: fd366e28300e2254090d11d3862259dd, type: 3}
       propertyPath: m_Name
       value: TT_Commander
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716681504089055279, guid: fd366e28300e2254090d11d3862259dd, type: 3}
+      propertyPath: m_stat.m_hp
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd366e28300e2254090d11d3862259dd, type: 3}
