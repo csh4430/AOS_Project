@@ -38,13 +38,12 @@ public class UnitMove : MonoBehaviour
             Stop();
             if (m_isTracing)
             {
-                m_isTracing = false;
                 m_attack?.Attack(m_targetUnit, m_unit.Stat.DefDam);
             }
         }
     }
 
-    public void Move(Vector3 targetPos, float stopRange = 0.1f)
+    public void Move(Vector3 targetPos, float stopRange = 0.1f, bool isTracing = false)
     {
 
         m_stopRange = stopRange;
@@ -54,6 +53,8 @@ public class UnitMove : MonoBehaviour
         m_targetPos.y = transform.position.y;
         if (Vector3.Distance(transform.position, m_targetPos) <= m_stopRange)
             return;
+
+        m_isTracing = isTracing;
         m_agent.isStopped = false;
         m_agent.SetDestination(targetPos);
         OnMoveEvent?.Invoke();
@@ -66,7 +67,7 @@ public class UnitMove : MonoBehaviour
         m_isTracing = isTracing;
         if (!m_isTracing)
             stopRange = 1f;
-        Move(target, stopRange);
+        Move(target, stopRange, isTracing);
     }
 
     public void Stop()

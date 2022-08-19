@@ -31,7 +31,8 @@ public class UnitAttack : MonoBehaviour
 
     public void AttackInAnimation()
     {
-        if (Vector3.Distance(transform.position, m_targetUnit.transform.position) >= m_unit.Stat.Range)
+        Vector3 target = m_targetUnit.GetComponent<Collider>().ClosestPoint(transform.position);
+        if (Vector3.Distance(transform.position, target) > m_unit.Stat.Range)
         {
             EndAttack();
             return;
