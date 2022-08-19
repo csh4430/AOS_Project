@@ -7774,6 +7774,7 @@ GameObject:
   - component: {fileID: 1174407826883766460}
   - component: {fileID: 881219441476480083}
   - component: {fileID: 1453337275728346727}
+  - component: {fileID: 5265237752115494375}
   m_Layer: 6
   m_Name: TT_Commander
   m_TagString: Unit
@@ -7838,6 +7839,7 @@ MonoBehaviour:
     m_atkSpeed: 0
     m_range: 5
   m_isBuliding: 0
+  m_isEnemy: 0
   selectionCircle: {fileID: 7716681502413120077}
 --- !u!65 &5448340173451415011
 BoxCollider:
@@ -7861,11 +7863,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 7716681504089055278}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
-  m_Acceleration: 5000
-  avoidancePriority: 0
-  m_AngularSpeed: 1000
+  m_Acceleration: 1000
+  avoidancePriority: 50
+  m_AngularSpeed: 10000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -7873,7 +7875,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &7716681504089055274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7886,6 +7888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f350dedd4b94af4ea53623c2fd1c0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isTracing: 0
 --- !u!114 &1174407826883766460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7916,8 +7919,8 @@ MonoBehaviour:
   - {fileID: 2745939151634967024}
   - {fileID: 2542983159459273026}
   outlineMaterial: {fileID: 2100000, guid: cd00c592526bcfc448107cd2eb81a469, type: 2}
-  outlineScaleFactor: -1.1
-  outlineColor: {r: 0, g: 0.4627451, b: 1, a: 0.35686275}
+  outlineScaleFactor: -1.05
+  outlineColor: {r: 0, g: 0.4627451, b: 1, a: 0.5019608}
 --- !u!114 &1453337275728346727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7930,6 +7933,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be96e258d99ca1640a300bcd27aa0284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isAttack: 0
+--- !u!54 &5265237752115494375
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716681504089055278}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7716681504089055584
 GameObject:
   m_ObjectHideFlags: 0

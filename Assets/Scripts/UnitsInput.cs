@@ -32,7 +32,7 @@ public class UnitsInput : MonoBehaviour
                 foreach (var unit in Define.SELECTED_UNITS)
                 {
                     if (!unit.IsBulding)
-                        unit.GetComponent<UnitMove>().Move(Define.POINTED_UNIT, unit.Stat.Range);
+                        unit.GetComponent<UnitMove>().Move(Define.POINTED_UNIT, unit.Stat.Range, Define.POINTED_UNIT.IsEnemy);
                 }
             }
             else

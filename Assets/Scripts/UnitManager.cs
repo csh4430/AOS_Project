@@ -12,7 +12,11 @@ public class UnitManager : MonoBehaviour, IDamagable
     [SerializeField]
     private bool m_isBuliding = false;
 
+    [SerializeField]
+    private bool m_isEnemy = false;
+
     public bool IsBulding { get { return m_isBuliding; } }
+    public bool IsEnemy { get { return m_isEnemy; } }
 
 
     public GameObject selectionCircle;

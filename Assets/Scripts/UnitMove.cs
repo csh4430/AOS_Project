@@ -46,22 +46,27 @@ public class UnitMove : MonoBehaviour
 
     public void Move(Vector3 targetPos, float stopRange = 0.1f)
     {
+
         m_stopRange = stopRange;
         if (Vector3.Distance(transform.position, targetPos) <= 1f)
             return;
         m_targetPos = targetPos;
         m_targetPos.y = transform.position.y;
+        if (Vector3.Distance(transform.position, m_targetPos) <= m_stopRange)
+            return;
         m_agent.isStopped = false;
         m_agent.SetDestination(targetPos);
         OnMoveEvent?.Invoke();
     }
 
-    public void Move(UnitManager unit, float stopRange)
+    public void Move(UnitManager unit, float stopRange, bool isTracing = true)
     {
         m_targetUnit = unit;
-        m_isTracing = true;
-
-        Move(unit.transform.position, stopRange);
+        Vector3 target = unit.GetComponent<Collider>().ClosestPoint(transform.position);
+        m_isTracing = isTracing;
+        if (!m_isTracing)
+            stopRange = 1f;
+        Move(target, stopRange);
     }
 
     public void Stop()

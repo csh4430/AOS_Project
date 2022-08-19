@@ -41,7 +41,6 @@ public class UnitAttack : MonoBehaviour
 
     public void EndAttack()
     {
-        Debug.Log(1);
         m_isAttack = false;
     }
 }
