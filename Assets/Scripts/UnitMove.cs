@@ -28,6 +28,13 @@ public class UnitMove : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_unit = GetComponent<UnitManager>();
         TryGetComponent<UnitAttack>(out m_attack);
+
+        if(m_unit.IsEnemy == false)
+            Define.MAIN_INPUT.OnCancelEvent += () =>
+            {
+                m_isTracing = false;
+                Stop();
+            };
     }
 
     private void Update()
@@ -38,7 +45,10 @@ public class UnitMove : MonoBehaviour
             Stop();
             if (m_isTracing)
             {
-                m_attack?.Attack(m_targetUnit, m_unit.Stat.DefDam);
+                if (m_targetUnit != null)
+                    m_attack?.Attack(m_targetUnit, m_unit.Stat.DefDam);
+                else
+                    m_isTracing = false;
             }
         }
     }

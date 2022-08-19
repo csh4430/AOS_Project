@@ -24,4 +24,15 @@ public static class Define
 
     public static List<UnitManager> SELECTED_UNITS = new List<UnitManager>();
     public static UnitManager POINTED_UNIT = null;
+
+    private static UnitsInput main_input = null;
+    public static UnitsInput MAIN_INPUT
+    {
+        get
+        {
+            if(main_input == null)
+                main_input = GameObject.Find("MainInput").GetComponent<UnitsInput>();
+            return main_input;
+        }
+    }
 }

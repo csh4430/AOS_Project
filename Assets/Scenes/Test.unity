@@ -420,6 +420,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 637b3bb1a53fd584b8b2f29eddb05290, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 637b3bb1a53fd584b8b2f29eddb05290, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1556,7 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stat:
-    m_hp: 0
+    m_hp: 100
     m_mp: 0
     m_defDam: 0
     m_skillDam: 0
@@ -1565,6 +1569,7 @@ MonoBehaviour:
     m_atkSpeed: 0
     m_range: 0
   m_isBuliding: 1
+  m_isEnemy: 1
   selectionCircle: {fileID: 1488740292}
 --- !u!114 &1881160190
 MonoBehaviour:
@@ -1629,6 +1634,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.059000004, y: 0.004, z: 4.9410005}
   m_TimeToStationary: 0.5
+--- !u!54 &1881160197
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881160188}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1916014369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,9 +1814,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 881219441476480083, guid: fd366e28300e2254090d11d3862259dd, type: 3}
-      propertyPath: outlineColor.a
-      value: 0.5019608
+    - target: {fileID: 1864066029, guid: fd366e28300e2254090d11d3862259dd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7716681504088827280, guid: fd366e28300e2254090d11d3862259dd, type: 3}
       propertyPath: m_RootOrder

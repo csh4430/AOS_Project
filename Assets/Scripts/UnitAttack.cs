@@ -15,6 +15,10 @@ public class UnitAttack : MonoBehaviour
     private void Awake()
     {
         m_unit = GetComponent<UnitManager>();
+        if(m_unit.IsEnemy == false)
+        {
+            Define.MAIN_INPUT.OnCancelEvent += EndAttack;
+        }
     }
 
     public void Attack(UnitManager unit, int amount)
