@@ -45,7 +45,7 @@ public class UnitMove : MonoBehaviour
             Stop();
             if (m_isTracing)
             {
-                if (m_targetUnit != null)
+                if (m_targetUnit != null && !m_targetUnit.IsDead)
                     m_attack?.Attack(m_targetUnit, m_unit.Stat.DefDam);
                 else
                     m_isTracing = false;

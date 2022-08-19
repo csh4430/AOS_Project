@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ToolBox.Pools;
@@ -24,6 +25,8 @@ public class UnitManager : MonoBehaviour, IDamagable
 
     public bool IsDead { get { return m_isDead; } }
 
+    public Action OnDamageEvent { get; set; }
+    public Action OnDieEvent { get; set; }
 
     public GameObject selectionCircle;
 
@@ -92,12 +95,20 @@ public class UnitManager : MonoBehaviour, IDamagable
             return;
         }
         Stat.ChangeStat(global::Stat.HP, Stat.HP - amount);
+        OnDamageEvent?.Invoke();
     }
 
     public void Die()
     {
         m_isDead = true;
         Deselect();
+        GetComponent<Collider>().enabled = false;
+        gameObject.tag = "Die";
+        OnDieEvent?.Invoke();
+    }
+
+    public void Destroy()
+    {
         gameObject.Release();
     }
 }

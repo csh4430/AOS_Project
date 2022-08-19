@@ -7837,9 +7837,10 @@ MonoBehaviour:
     m_defArm: 50
     m_skillArm: 50
     m_atkSpeed: 0
-    m_range: 5
+    m_range: 1
   m_isBuliding: 0
   m_isEnemy: 0
+  m_isDead: 0
   selectionCircle: {fileID: 7716681502413120077}
 --- !u!65 &5448340173451415011
 BoxCollider:
