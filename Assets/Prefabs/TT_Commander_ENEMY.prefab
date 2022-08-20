@@ -1603,7 +1603,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd64d998ac3694b40bc2f1c6b4b635dd, type: 2}
+  - {fileID: 2100000, guid: 49882d53019c04d40aab70849aa601ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7775,6 +7775,7 @@ GameObject:
   - component: {fileID: 881219441476480083}
   - component: {fileID: 1453337275728346727}
   - component: {fileID: 5265237752115494375}
+  - component: {fileID: 2584769539280110014}
   m_Layer: 6
   m_Name: TT_Commander_ENEMY
   m_TagString: Unit
@@ -7840,6 +7841,7 @@ MonoBehaviour:
     m_range: 5
   m_isBuliding: 0
   m_isEnemy: 1
+  m_isDead: 0
   selectionCircle: {fileID: 7716681502413120077}
 --- !u!65 &5448340173451415011
 BoxCollider:
@@ -7863,7 +7865,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7716681504089055278}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 1000
   avoidancePriority: 50
@@ -7950,6 +7952,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2584769539280110014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716681504089055278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881c77c5382fe0941a75d4cd2164c9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_impactList:
+  - {fileID: 688082827550496477, guid: 4695eb4b72afd3e4eaa8fe7824a4149d, type: 3}
 --- !u!1 &7716681504089055584
 GameObject:
   m_ObjectHideFlags: 0

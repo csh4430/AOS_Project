@@ -88,6 +88,7 @@ public class UnitManager : MonoBehaviour, IDamagable
 
     public void Damage(int amount)
     {
+        OnDamageEvent?.Invoke();
         if (Stat.HP - amount <= 0)
         {
             Stat.ChangeStat(global::Stat.HP, 0);
@@ -95,7 +96,6 @@ public class UnitManager : MonoBehaviour, IDamagable
             return;
         }
         Stat.ChangeStat(global::Stat.HP, Stat.HP - amount);
-        OnDamageEvent?.Invoke();
     }
 
     public void Die()

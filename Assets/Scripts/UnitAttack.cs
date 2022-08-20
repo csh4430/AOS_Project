@@ -10,11 +10,14 @@ public class UnitAttack : MonoBehaviour
     private bool m_isAttack = false;
     private UnitManager m_unit = null;
     private UnitManager m_targetUnit = null;
+    private UnitMove m_move = null;
 
     private int m_damage = 0;
     private void Awake()
     {
         m_unit = GetComponent<UnitManager>();
+        m_move = GetComponent<UnitMove>();
+        m_move.OnMoveEvent += EndAttack;
         if(m_unit.IsEnemy == false)
         {
             Define.MAIN_INPUT.OnCancelEvent += EndAttack;

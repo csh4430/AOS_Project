@@ -35,6 +35,7 @@ public class UnitMove : MonoBehaviour
                 m_isTracing = false;
                 Stop();
             };
+        m_targetPos = transform.position;
     }
 
     private void Update()
@@ -59,8 +60,10 @@ public class UnitMove : MonoBehaviour
         m_stopRange = stopRange;
         if (Vector3.Distance(transform.position, targetPos) <= 1f)
             return;
+        m_agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
         m_targetPos = targetPos;
         m_targetPos.y = transform.position.y;
+        transform.LookAt(m_targetPos);
         if (Vector3.Distance(transform.position, m_targetPos) <= m_stopRange)
             return;
 
@@ -82,6 +85,7 @@ public class UnitMove : MonoBehaviour
 
     public void Stop()
     {
+        m_agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         m_agent.isStopped = true;
         DeMoveEvent?.Invoke();
     }
