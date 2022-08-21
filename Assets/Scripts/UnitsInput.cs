@@ -6,8 +6,6 @@ using ToolBox.Pools;
 
 public class UnitsInput : MonoBehaviour
 {
-    private GameObject m_lastSelectedObject = null;
-    public Action OnCancelEvent = null;
 
     public GameObject ClickEffect = null;
     void Update()
@@ -19,7 +17,12 @@ public class UnitsInput : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            OnCancelEvent?.Invoke();
+            foreach(var unit in Define.SELECTED_UNITS)
+            {
+                if (unit.IsBulding || unit.IsEnemy)
+                    continue;
+                unit.OnCancelEvent?.Invoke();
+            }
         }
         if (Input.GetMouseButtonDown(1))
         {

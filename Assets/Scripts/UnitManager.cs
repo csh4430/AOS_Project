@@ -25,6 +25,8 @@ public class UnitManager : MonoBehaviour, IDamagable
 
     public bool IsDead { get { return m_isDead; } }
 
+
+    public Action OnCancelEvent = null;
     public Action OnDamageEvent { get; set; }
     public Action OnDieEvent { get; set; }
 

@@ -18,10 +18,7 @@ public class UnitAttack : MonoBehaviour
         m_unit = GetComponent<UnitManager>();
         m_move = GetComponent<UnitMove>();
         m_move.OnMoveEvent += EndAttack;
-        if(m_unit.IsEnemy == false)
-        {
-            Define.MAIN_INPUT.OnCancelEvent += EndAttack;
-        }
+        m_unit.OnCancelEvent += EndAttack;
     }
 
     public void Attack(UnitManager unit, int amount)

@@ -28,8 +28,7 @@ public class UnitAnimation : MonoBehaviour
         m_attack.OnAttackEvent += PlayAttackAnimation;
         m_unit.OnDamageEvent += PlayDamageAnimation;
         m_unit.OnDieEvent += PlayDieAnimation;
-        if (m_unit.IsEnemy == false)
-            Define.MAIN_INPUT.OnCancelEvent += CancelAllAnimation;
+        m_unit.OnCancelEvent += CancelAllAnimation;
     }
 
     public void PlayDieAnimation()

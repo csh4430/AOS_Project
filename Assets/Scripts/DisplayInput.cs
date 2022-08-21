@@ -8,7 +8,6 @@ public class DisplayInput : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField]
     private Vector3 m_dir = Vector3.zero;
     private bool m_isOver = false;
-
     private void Update()
     {
         if(m_isOver)

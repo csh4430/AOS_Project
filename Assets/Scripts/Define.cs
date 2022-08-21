@@ -35,4 +35,6 @@ public static class Define
             return main_input;
         }
     }
+
+    public static Vector3 MapSize = new Vector3(100, 0, 100);
 }

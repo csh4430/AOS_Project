@@ -29,12 +29,12 @@ public class UnitMove : MonoBehaviour
         m_unit = GetComponent<UnitManager>();
         TryGetComponent<UnitAttack>(out m_attack);
 
-        if(m_unit.IsEnemy == false)
-            Define.MAIN_INPUT.OnCancelEvent += () =>
-            {
-                m_isTracing = false;
-                Stop();
-            };
+        m_unit.OnCancelEvent += () =>
+        {
+            m_isTracing = false;
+            Stop();
+        };
+
         m_targetPos = transform.position;
     }
 
