@@ -37,4 +37,6 @@ public static class Define
     }
 
     public static Vector3 MapSize = new Vector3(100, 0, 100);
+
+    public static float CamDistance = 15;
 }

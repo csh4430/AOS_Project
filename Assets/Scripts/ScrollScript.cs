@@ -27,6 +27,7 @@ public class ScrollScript : MonoBehaviour
             Vector3 camPos = Define.MainCam.transform.position;
             camPos.y = CameraDistance;
             Define.MainCam.transform.position = camPos;
+            Define.CamDistance = CameraDistance;
         }
     }
 }
