@@ -27,7 +27,7 @@ public class UnitsInput : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
-            Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, LayerMask.NameToLayer("Terrain"));
+            Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, LayerMask.GetMask("Terrain"));
             if(Define.POINTED_UNIT == null)
                 ClickEffect.Reuse(hit.point + Vector3.up * 0.3f, Quaternion.identity);
         }
@@ -37,7 +37,7 @@ public class UnitsInput : MonoBehaviour
             RaycastHit hit;
             Vector3 point = Vector3.zero;
             int cnt = 0;
-            Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, LayerMask.NameToLayer("Terrain"));
+            Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, LayerMask.GetMask("Terrain"));
             foreach (var unit in Define.SELECTED_UNITS)
             {
                 if (unit.IsEnemy)

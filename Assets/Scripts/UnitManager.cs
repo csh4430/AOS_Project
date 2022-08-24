@@ -11,8 +11,7 @@ public class UnitManager : MonoBehaviour, IDamagable
 
     public UnitStat Stat { get => m_stat;}
 
-    [SerializeField]
-    private bool m_isBuliding = false;
+    protected bool m_isBuliding = false;
 
     [SerializeField]
     private bool m_isEnemy = false;

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BuildingManager : UnitManager
 {
+    private void Awake()
+    {
+        m_isBuliding = true;
+    }
     protected override bool IsActive()
     {
-        return false;
+        return true;
     }
 }
