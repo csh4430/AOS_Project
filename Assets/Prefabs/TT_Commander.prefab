@@ -7839,7 +7839,6 @@ MonoBehaviour:
     m_skillArm: 50
     m_atkSpeed: 0
     m_range: 1
-  m_isBuliding: 0
   m_isEnemy: 0
   m_isDead: 0
   selectionCircle: {fileID: 7716681502413120077}
@@ -7867,7 +7866,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 1000
+  m_Acceleration: 10000
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0

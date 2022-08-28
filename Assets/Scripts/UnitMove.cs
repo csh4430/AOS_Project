@@ -17,6 +17,8 @@ public class UnitMove : MonoBehaviour
 
     private bool m_isMove = false;
 
+    private bool m_isBuilding = false;
+
     private float m_stopRange = 0;
 
     private UnitManager m_unit = null;
@@ -51,6 +53,11 @@ public class UnitMove : MonoBehaviour
                 else
                     m_isTracing = false;
             }
+            if (m_isBuilding)
+            {
+                (m_targetUnit as BuildingManager).AddUnit(m_unit);
+            }
+            m_isBuilding = false;
         }
     }
 
@@ -79,7 +86,10 @@ public class UnitMove : MonoBehaviour
         Vector3 target = unit.GetComponent<Collider>().ClosestPoint(transform.position);
         m_isTracing = isTracing;
         if (!m_isTracing)
+        {
+            m_isBuilding = true;
             stopRange = 1f;
+        }
         Move(target, stopRange, isTracing);
     }
 

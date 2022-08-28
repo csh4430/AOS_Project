@@ -11,7 +11,7 @@ public class UnitManager : MonoBehaviour, IDamagable
 
     public UnitStat Stat { get => m_stat;}
 
-    protected bool m_isBuliding = false;
+    protected bool m_isBuilding = false;
 
     [SerializeField]
     private bool m_isEnemy = false;
@@ -19,7 +19,7 @@ public class UnitManager : MonoBehaviour, IDamagable
     [SerializeField]
     private bool m_isDead = false;
 
-    public bool IsBulding { get { return m_isBuliding; } }
+    public bool IsBuilding { get { return m_isBuilding; } }
     public bool IsEnemy { get { return m_isEnemy; } }
 
     public bool IsDead { get { return m_isDead; } }
@@ -30,6 +30,17 @@ public class UnitManager : MonoBehaviour, IDamagable
     public Action OnDieEvent { get; set; }
 
     public GameObject selectionCircle;
+
+    private BuildingManager m_buildingOnUnit = null;
+
+    private void Awake()
+    {
+        OnCancelEvent += () =>
+        {
+            m_buildingOnUnit?.RemoveUnit(this);
+        };
+            
+    }
 
     private void OnMouseDown()
     {
@@ -75,6 +86,10 @@ public class UnitManager : MonoBehaviour, IDamagable
         }
     }
 
+    public void WorkOnBuilding(BuildingManager building)
+    {
+        m_buildingOnUnit = building;
+    }
     protected virtual bool IsActive()
     {
         return true;

@@ -19,7 +19,7 @@ public class UnitsInput : MonoBehaviour
         {
             foreach(var unit in Define.SELECTED_UNITS)
             {
-                if (unit.IsBulding || unit.IsEnemy)
+                if (unit.IsBuilding || unit.IsEnemy)
                     continue;
                 unit.OnCancelEvent?.Invoke();
             }
@@ -30,6 +30,15 @@ public class UnitsInput : MonoBehaviour
             Physics.Raycast(Define.MainCam.ScreenPointToRay(Input.mousePosition), out hit, float.MaxValue, LayerMask.GetMask("Terrain"));
             if(Define.POINTED_UNIT == null)
                 ClickEffect.Reuse(hit.point + Vector3.up * 0.3f, Quaternion.identity);
+            foreach(var unit in Define.SELECTED_UNITS)
+            {
+                if (Define.POINTED_UNIT != null)
+                if(Define.POINTED_UNIT.IsBuilding)
+                {
+                    unit.WorkOnBuilding(Define.POINTED_UNIT as BuildingManager);
+                }
+                unit.OnCancelEvent?.Invoke();
+            }
         }
         if (Input.GetMouseButton(1))
         {
@@ -42,7 +51,7 @@ public class UnitsInput : MonoBehaviour
             {
                 if (unit.IsEnemy)
                     continue;
-                if (unit.IsBulding)
+                if (unit.IsBuilding)
                     continue;
                 point += unit.transform.position;
                 cnt++;
@@ -53,7 +62,7 @@ public class UnitsInput : MonoBehaviour
                 foreach (var unit in Define.SELECTED_UNITS)
                 {
                     if (!unit.IsEnemy)
-                    if (!unit.IsBulding)
+                    if (!unit.IsBuilding)
                         unit.GetComponent<UnitMove>().Move(Define.POINTED_UNIT, unit.Stat.Range, Define.POINTED_UNIT.IsEnemy);
                 }
             }
@@ -62,7 +71,7 @@ public class UnitsInput : MonoBehaviour
                 foreach (var unit in Define.SELECTED_UNITS)
                 {
                     if (!unit.IsEnemy)
-                    if (!unit.IsBulding)
+                    if (!unit.IsBuilding)
                         unit.GetComponent<UnitMove>().Move(unit.transform.position - point + hit.point);
                 }
             }
