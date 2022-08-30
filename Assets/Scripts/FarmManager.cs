@@ -17,6 +17,18 @@ public class FarmManager : BuildingManager
         m_completeBalloon.TurnBalloon(false);
     }
 
+    protected override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        if(m_food > 0)
+        {
+            Define.PM.Resource.Food += m_food;
+            Define.GM.ShowFoodCount();
+            m_food = 0;
+            m_completeBalloon.TurnBalloon(false);
+        }
+    }
+
     public override void EnterSkillActive()
     {
         base.EnterSkillActive();
@@ -26,7 +38,7 @@ public class FarmManager : BuildingManager
     public override void StaySkillActive()
     {
         base.StaySkillActive();
-        if (m_makingTime > m_goalTime){
+        if (m_makingTime > m_goalTime / m_unitsOnBuilding.Count){
             m_food++;
             m_completeBalloon.TurnBalloon(true);
             m_makingTime = 0f;

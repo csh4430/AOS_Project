@@ -42,7 +42,7 @@ public class UnitManager : MonoBehaviour, IDamagable
             
     }
 
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         if (IsActive())
             Select(

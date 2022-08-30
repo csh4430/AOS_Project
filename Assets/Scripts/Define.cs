@@ -36,6 +36,30 @@ public static class Define
         }
     }
 
+    private static PlayerManager player_manager = null;
+
+    public static PlayerManager PM
+    {
+        get
+        {
+            if(player_manager == null)
+                player_manager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+            return player_manager;
+        }
+    }
+
+    private static GameManager game_manager = null;
+
+    public static GameManager GM
+    {
+        get
+        {
+            if (game_manager == null)
+                game_manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            return game_manager;
+        }
+    }
+
     public static Vector3 MapSize = new Vector3(100, 0, 100);
 
     public static float CamDistance = 15;

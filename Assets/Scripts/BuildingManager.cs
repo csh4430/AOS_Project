@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildingManager : UnitManager
 {
-    private List<UnitManager> m_unitsOnBuilding = new List<UnitManager>();
+    protected List<UnitManager> m_unitsOnBuilding = new List<UnitManager>();
 
     private bool m_isSkillActive = false;
     private bool m_isSkillDeActive = true;

@@ -28,6 +28,10 @@ public class OutlineScript : MonoBehaviour
         rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
         outlineObject.GetComponent<OutlineScript>().enabled = false;
+        Collider collider = null;
+        outlineObject.TryGetComponent<Collider>(out collider);
+        if(collider != null)
+            collider.enabled = false;
     }
 
     public void DestroyOutline()
